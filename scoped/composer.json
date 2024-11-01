@@ -1,0 +1,49 @@
+{
+    "name": "wpmet\/youtube-feed-builder",
+    "description": "youtube-feed-builder for wordpress. supported builders: elementor",
+    "scripts": {
+        "install": [
+            "composer install --no-cache"
+        ],
+        "scoped": [
+            "composer bin php-scoper require --dev humbug\/php-scoper",
+            "vendor\/bin\/php-scoper add-prefix --output-dir scoped --force",
+            "composer dump-autoload -d scoped"
+        ],
+        "scoped-install": [
+            "composer install",
+            "composer scoped"
+        ],
+        "lint": ".\/vendor\/bin\/phpcs --standard=phpcs.xml",
+        "lint:fix": ".\/vendor\/bin\/phpcbf"
+    },
+    "authors": [
+        {
+            "name": "wpmet",
+            "email": "dev@xpeedstudio.com"
+        }
+    ],
+    "require-dev": {
+        "bamarni\/composer-bin-plugin": "^1.5"
+    },
+    "config": {
+        "vendor-dir": "vendor",
+        "allow-plugins": {
+            "bamarni\/composer-bin-plugin": true,
+            "kylekatarnls\/update-helper": true
+        }
+    },
+    "extra": {
+        "bamarni-bin": {
+            "target-directory": "vendor\/vendor-bin"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "UltimateYoutubeFeed\\": "..\/includes\/"
+        }
+    },
+    "require": {
+        "wpmet\/utility-package": "^1.0"
+    }
+}
